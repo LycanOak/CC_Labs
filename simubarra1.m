@@ -4,16 +4,20 @@
 load('barrassmodel.mat')
 % Defines experiment parameters
 Ts=0.01; % Sampling interval
-tfinal=200; %
-B=0.1;
-f=30
-t=0:1/f:tfinal;
-u=idinput(length(t),'PRBS',[0 B])
-u_in = [t', u]
+tfinal=200;
+% t=(0:1/f:tfinal)
+t=(0:tfinal)'
+f=0.01
+% B=0.1
+u=square(2*pi*f*t)
+figure(1)
+% u=idinput(length(t),'PRBS',[0 B])
+u_in=[t u]
+plot(u)
 % Simulates the true model to generate data for identification
 sim('barra1');
 % Plots the continuous and the discrete time outputs
-figure(1)
+figure(2)
 gg=plot(t,y);
 set(gg,'LineWidth',1.5);
 gg=xlabel('t (s)');
