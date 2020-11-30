@@ -4,7 +4,7 @@ load('iodata1.mat');
 Ts = mean(diff(ts));
 
 Q=transpose(CC)*C;
-R=10;
+R=100;
 [K,~,p]=dlqr(AA,BB,Q,R);
 figure(5);
 zplane([],p);
@@ -23,7 +23,8 @@ Nx = N(1:7,:);
 Nu = N(8,:);
 Nbar = Nu+K*Nx;
 
-sout=sim('regulator_2');
+%%%%sout=sim('regulator_2');
+sout=sim('regulador_apenas');
 
 T_lqr = ss(A,B,K,0,Ts);
 bode(T_lqr);
