@@ -23,8 +23,14 @@ Nx = N(1:7,:);
 Nu = N(8,:);
 Nbar = Nu+K*Nx;
 
-%%%%sout=sim('regulator_2');
+%sout=sim('regulator_2');
 sout=sim('regulador_apenas');
+T_lqr1 = ss(Atrue,Btrue,Ctrue,Dtrue); 
 
-T_lqr = ss(A,B,K,0,Ts);
+T_lqr = ss(A,B,C,D,Ts);
+figure(6);
 bode(T_lqr);
+figure(7);
+bode(T_lqr1);
+%%%pzmap(T_lqr);
+

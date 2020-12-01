@@ -1,7 +1,7 @@
 % Flexible robot link
 %--------------------------------------------------------------------
 % Loads the true flexible link model
-load('barrassmodel.mat')
+load('barrassmodel2.mat')
 % Defines experiment parameters
 Ts=0.01; % Sampling interval
 tfinal=200; %
